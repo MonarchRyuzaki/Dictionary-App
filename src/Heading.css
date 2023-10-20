@@ -1,0 +1,14 @@
+.heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.word{
+    font-size: 50px;
+}
+
+.phonetic{
+    font-size: 20px;
+    color: #a622fd;
+}
