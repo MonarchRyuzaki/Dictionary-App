@@ -3,18 +3,19 @@ import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 
-function SearchBar({ setText }) {
+function SearchBar({ setText, isDarkMode }) {
   const [formData, setFormData] = useState("");
   const handleChange = (e) => {
     const changedField = e.target.name;
     const newValue = e.target.value;
-    console.log(changedField, newValue);
     setFormData(newValue);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setText(formData);
-    setFormData("");
+    if (formData){
+      setText(formData);
+      setFormData("");
+    }
   };
 
   return (
@@ -34,6 +35,23 @@ function SearchBar({ setText }) {
         value={formData}
         name="searchKey"
         onChange={handleChange}
+        autoComplete="off"
+        sx={{
+          backgroundColor: isDarkMode ? "#1a1a1a" : "white", // Dark background in dark mode
+          color: isDarkMode ? "#f0f0f0" : "black",
+          "& input": {
+            color: isDarkMode ? "#f0f0f0" : "black",
+          },
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: isDarkMode ? "#f0f0f0" : "rgba(0, 0, 0, 0.23)",
+          },
+          "& .MuiInputLabel-root": {
+            color: isDarkMode ? "#f0f0f0" : "black",
+          },
+          "&:hover": {
+            backgroundColor: isDarkMode ? "#2a2a2a" : "white", // Change the background color on hover
+          },
+        }}
       />
       <SearchIcon
         style={{

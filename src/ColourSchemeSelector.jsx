@@ -2,11 +2,15 @@ import { useState } from 'react';
 import { Switch, FormControlLabel } from '@mui/material';
 import "./ColourSchemeSelector.css"
 
-export default function ColorSchemeSelctor(){
-    const [isChecked, setIsChecked] = useState(false);
+export default function ColorSchemeSelctor({setIsDarkMode}){
+  const savedPreference = localStorage.getItem("darkMode");
+    const [isChecked, setIsChecked] = useState(savedPreference === "true");
     
     const handleToggle = () => {
-      setIsChecked(!isChecked);
+      const newMode = !isChecked;
+      setIsChecked(newMode);
+      setIsDarkMode(newMode);
+      localStorage.setItem("darkMode", newMode);
     };
     
     return (

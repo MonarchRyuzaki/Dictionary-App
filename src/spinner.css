@@ -1,0 +1,23 @@
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    /* Adjust the height as needed */
+}
+
+.spinner {
+    height: 40px;
+    width: 40px;
+    background: inherit;
+    border-radius: 50%;
+    border: 2px solid #a622fd;
+    border-top-color: #fff;
+    animation: spinner2 600ms linear infinite;
+}
+
+@keyframes spinner2 {
+    to {
+        transform: rotate(360deg);
+    }
+}

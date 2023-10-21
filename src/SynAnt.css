@@ -1,0 +1,14 @@
+.extra{
+    display: flex;
+    align-items: center;
+}
+
+.display{
+    margin-left: 15px;
+}
+
+.val{
+    font-weight: 600;
+    margin: 5px;
+    color: #a622fd;
+}

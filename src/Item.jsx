@@ -1,7 +1,20 @@
 import "./Item.css";
+import SynAnt from "./SynAnt";
 
 export default function Item({ partOfSpeech, definitions }) {
-  console.log(partOfSpeech, definitions);
+  const syn = [], ant = [];
+  definitions.map((def) => {
+    if (def.synonyms.length > 0){
+      def.synonyms.map((s) => {
+        syn.push(s);
+      })
+    }
+    if (def.antonyms.length > 0){
+      def.antonyms.map((s) => {
+        ant.push(s);
+      })
+    }
+  })
   return (
     <section className="speechwise-meaning">
       <div className="section-heading">
@@ -16,34 +29,12 @@ export default function Item({ partOfSpeech, definitions }) {
               <li key={i}>
                 <div className="def">{def.definition}</div>
                 <div className="example">{def.example}</div>
-                {def.synonyms.length > 0 && (
-                  <div className="synonyms">
-                    <span className="syn">Synonyms: </span>
-                    {def.synonyms.map((s, i) => {
-                      return (
-                        <span key={i} className="synonym">
-                          {s}
-                        </span>
-                      );
-                    })}
-                  </div>
-                )}
-                {def.antonyms.length > 0 && (
-                  <div className="antonyms">
-                    <span className="ant">Antonyms:  </span>
-                    {def.antonyms.map((s, i) => {
-                      return (
-                        <span key={i} className="antonym">
-                          {s}
-                        </span>
-                      );
-                    })}
-                  </div>
-                )}
               </li>
             );
           })}
         </ul>
+        {syn.length > 0 && <SynAnt type = "Synonymns" data = {syn}/>}
+        {ant.length > 0 && <SynAnt type = "Antonymns" data = {ant}/>}
       </div>
     </section>
   );
