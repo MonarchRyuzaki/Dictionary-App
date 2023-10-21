@@ -19,7 +19,7 @@ export default function ColorSchemeSelctor({setIsDarkMode}){
           control={<Switch checked={isChecked} onChange={handleToggle} />
         }
         />
-        <img src="./assets/icon-moon.svg" alt="" />
+        <img src="/src/assets/icon-moon.svg" alt="" />
     </div>
     );
 }

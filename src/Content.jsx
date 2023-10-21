@@ -1,7 +1,7 @@
 import Heading from "./Heading";
 import Item from "./Item";
 
-export default function Main({data}){
+export default function Content({data}){
     const word = data.word;
     let phonetic, audio;
     for (let d in data.phonetics){

@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
-import Main from "./Main";
 import Navbar from "./Navbar";
 import SearchBar from "./SearchBar";
 import Spinner from "./Spinner";
 import "./reset.css";
+import Content from "./Content";
 
 const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
@@ -48,7 +48,7 @@ function App() {
       <Navbar setFont={setFont} font={font} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode}/>
       <SearchBar setText={setText} isDarkMode={isDarkMode}/>
       {!loading && <Spinner />}
-      {loading && <Main data={responseData[0]} />}
+      {loading && <Content data={responseData[0]} />}
     </div>
   );
 }
