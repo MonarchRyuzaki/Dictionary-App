@@ -21,7 +21,7 @@ export default function Heading({word, phonetic, audio}){
                 <div className="phonetic">{phonetic}</div>
             </div>
             <div className="audio">
-                <img src="../assets/icon-play.svg" alt="" onClick={handleClick}/>
+                <img src="./assets/icon-play.svg" alt="" onClick={handleClick}/>
             </div>
             <audio src={audioSrc} type="mp3"></audio>
         </div>
