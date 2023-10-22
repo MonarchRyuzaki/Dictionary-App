@@ -12,6 +12,8 @@ export default function ColorSchemeSelctor({setIsDarkMode}){
       setIsDarkMode(newMode);
       localStorage.setItem("darkMode", newMode);
     };
+
+    const src = "src/assets/images/"
     
     return (
     <div className='colour-toggle'>
@@ -19,7 +21,7 @@ export default function ColorSchemeSelctor({setIsDarkMode}){
           control={<Switch checked={isChecked} onChange={handleToggle} />
         }
         />
-        <img src="src/assets/icon-moon.svg" alt="" />
+        <img src={src+"icon-moon.svg"} alt="" />
     </div>
     );
 }
