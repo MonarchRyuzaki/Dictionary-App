@@ -14,7 +14,7 @@ export default function Heading({ word, phonetic, audio }) {
       audioElement.play();
     }
   };
-  const src = "src/assets/images/";
+  const src = "/src/assets/images/";
   return (
     <div className="heading">
       <div className="text">

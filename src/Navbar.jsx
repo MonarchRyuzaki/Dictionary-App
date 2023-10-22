@@ -3,7 +3,7 @@ import FontSelector from "./FontSelector";
 import "./Navbar.css";
 
 export default function Navbar({setFont, font, setIsDarkMode, isDarkMode}) {
-  const src = "src/assets/images/"
+  const src = "/src/assets/images/"
   return (
     <div className="Navbar">
       <img src={src+"logo.svg"} alt="" className="logo" />

@@ -13,7 +13,7 @@ export default function ColorSchemeSelctor({setIsDarkMode}){
       localStorage.setItem("darkMode", newMode);
     };
 
-    const src = "src/assets/images/"
+    const src = "/src/assets/images/"
     
     return (
     <div className='colour-toggle'>
