@@ -1,5 +1,5 @@
-import "./Item.css";
-import SynAnt from "./SynAnt";
+import "../styles/Item.css";
+import {SynAnt} from "./index";
 
 export default function Item({ partOfSpeech, definitions }) {
   const syn = [], ant = [];

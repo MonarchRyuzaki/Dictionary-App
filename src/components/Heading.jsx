@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Heading.css";
+import "../styles/Heading.css";
 
 export default function Heading({ word, phonetic, audio }) {
   const [audioSrc, setAudioSrc] = useState("");

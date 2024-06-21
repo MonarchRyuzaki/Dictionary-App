@@ -1,4 +1,4 @@
-import "./SynAnt.css"
+import "../styles/SynAnt.css"
 
 export default function SynAnt({type, data}){
     return (

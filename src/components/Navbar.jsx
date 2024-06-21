@@ -1,6 +1,5 @@
-import ColorSchemeSelctor from "./ColourSchemeSelector";
-import FontSelector from "./FontSelector";
-import "./Navbar.css";
+import { ColorSchemeSelector, FontSelector } from ".";
+import "../styles/Navbar.css";
 
 export default function Navbar({setFont, font, setIsDarkMode, isDarkMode}) {
   const src = "/assets/images/"
@@ -9,7 +8,7 @@ export default function Navbar({setFont, font, setIsDarkMode, isDarkMode}) {
       <img src={src+"logo.svg"} alt="" className="logo" />
       <div className="w">
         <FontSelector className="font-selector" setFont={setFont} font = {font} isDarkMode = {isDarkMode}/>
-        <ColorSchemeSelctor className="scheme-selector" setIsDarkMode={setIsDarkMode} isDarkMode = {isDarkMode}/>
+        <ColorSchemeSelector className="scheme-selector" setIsDarkMode={setIsDarkMode} isDarkMode = {isDarkMode}/>
       </div>
     </div>
   );

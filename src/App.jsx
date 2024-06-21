@@ -1,18 +1,12 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
-import Navbar from "./Navbar";
-import SearchBar from "./SearchBar";
-import Spinner from "./Spinner";
-import "./reset.css";
-import Content from "./Content";
-
-const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+import { getData } from "./api";
+import { Content, Navbar, SearchBar, Spinner } from "./components";
 
 function App() {
   const [text, setText] = useState("hello");
-  const [responseData, setResponseData] = useState([]); // State to store response data
-  const [loading, setLoading] = useState(false);
+  const [responseData, setResponseData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [font, setFont] = useState("serif");
   const savedPreference = localStorage.getItem("darkMode");
   const [isDarkMode, setIsDarkMode] = useState(savedPreference === "true");
@@ -32,23 +26,34 @@ function App() {
   }, [isDarkMode]);
 
   useEffect(() => {
-    async function fetchData() {
-      setLoading(false);
-      const response = await axios.get(`${url}${text}`);
+    async function fetchData(text) {
       setLoading(true);
-      setResponseData(response.data);
+      try {
+        const response = await getData(text);
+        setResponseData([response]);
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setLoading(false);
+      }
     }
-    fetchData();
-  }, [text, font, isDarkMode]);
+    fetchData(text);
+  }, [text]);
+
   return (
     <div
       className={`container ${isDarkMode ? "dark" : "light"}`}
       style={{ fontFamily: font }}
     >
-      <Navbar setFont={setFont} font={font} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode}/>
-      <SearchBar setText={setText} isDarkMode={isDarkMode}/>
-      {!loading && <Spinner />}
-      {loading && <Content data={responseData[0]} />}
+      <Navbar
+        setFont={setFont}
+        font={font}
+        setIsDarkMode={setIsDarkMode}
+        isDarkMode={isDarkMode}
+      />
+      <SearchBar setText={setText} isDarkMode={isDarkMode} />
+      {loading && <Spinner />}
+      {!loading && <Content data={responseData[0]} />}
     </div>
   );
 }
